@@ -3,7 +3,6 @@ import pandas as pd
 import streamlit as st 
 import plotly.express as px 
 import plotly.graph_objects as go
-import matplotlib.pyplot as plt
 from plotly.subplots import make_subplots
 import altair as alt
 
@@ -287,19 +286,32 @@ df_summary_table = df_country_selected[['Year',
                                         'Armed forces personnel (% of total labour force)']]
 
 st.markdown('##### Summary table for military data')
-st.dataframe(df_summary_table\
-    .style\
-        .format(precision=2)\
-            .format(precision=2,
-                    thousands=',', 
-                    subset=['Military expenditure (Current USD - $ millions)',
-                            'Total of armed forces personnel'])\
-                                .background_gradient(subset=['Military expenditure (Current USD - $ millions)',
-                                                             'Percentage change in military expenditure',
-                                                             'Military expenditure per capita',
-                                                             'Military expenditure as a share of GDP',
-                                                             'Military expendenture as a share of government spending',
-                                                             'Total of armed forces personnel',
-                                                             'Armed forces personnel (% of total labour force)'],
-                                                     cmap=selected_palette))
-
+st.dataframe(df_summary_table, 
+             column_config={'Military expenditure (Current USD - $ millions)':st.column_config.ProgressColumn('Military spending (Current USD - millions)', 
+                                                                                                              format="$%.2f",
+                                                                                                              min_value=0, 
+                                                                                                              max_value=max(df_summary_table['Military expenditure (Current USD - $ millions)'])), 
+                            'Percentage change in military expenditure':st.column_config.ProgressColumn('% change in military spend', 
+                                                                                                              format="%%%.2f",
+                                                                                                              min_value=0, 
+                                                                                                              max_value=max(df_summary_table['Percentage change in military expenditure'])), 
+                            'Military expenditure per capita':st.column_config.ProgressColumn('Military spending per capita', 
+                                                                                                              format="%.2f",
+                                                                                                              min_value=0, 
+                                                                                                              max_value=max(df_summary_table['Military expenditure per capita'])), 
+                            'Military expenditure as a share of GDP':st.column_config.ProgressColumn('Military spending as a share of GDP', 
+                                                                                                              format="%%%.2f",
+                                                                                                              min_value=0, 
+                                                                                                              max_value=max(df_summary_table['Military expendenture as a share of government spending'])) , 
+                            'Military expendenture as a share of government spending':st.column_config.ProgressColumn('Military spending as a share of government spending', 
+                                                                                                              format="%%%.2f",
+                                                                                                              min_value=0, 
+                                                                                                              max_value=max(df_summary_table['Military expendenture as a share of government spending'])), 
+                            'Total of armed forces personnel':st.column_config.ProgressColumn('Total of armed forces personnel', 
+                                                                                                              format="%.0f",
+                                                                                                              min_value=0, 
+                                                                                                              max_value=max(df_summary_table['Total of armed forces personnel'])), 
+                            'Armed forces personnel (% of total labour force)':st.column_config.ProgressColumn('Armed forces personnel (% of total labour force)', 
+                                                                                                              format="%%%.2f",
+                                                                                                              min_value=0,
+                                                                                                              max_value=max(df_summary_table['Total of armed forces personnel']))})
