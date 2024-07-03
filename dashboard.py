@@ -22,7 +22,7 @@ with st.expander('About', expanded=False):
         st.write('''
             - Welcome to the Global Military Data web app dashboard, where the analysis of the data is of 140 countries spanning the years 2014 to 2023. The dynamic visualizations include a choropleth map, bar charts, a bar and line combo chart, a sunburst chart, a treemap, and a summary table. Dive in and gain insights into countries’ military capabilities worldwide!
             - Data was sourced from: [Stockholm International Peace Research Institute (SIPRI) database](https://www.sipri.org/databases/milex).
-            - Vist my website for great data science projects: [Data Warrior Analytics](https://nigelgondo.github.io/NigelGondoDataAnalyst.github.io/).
+            - Vist my website for great data science projects - Happy Analyzing Data Warriors: [Data Warrior Analytics](https://nigelgondo.github.io/NigelGondoDataAnalyst.github.io/).
             ''')
         
         st.image("https://nigelgondo.github.io/NigelGondoDataAnalyst.github.io/images/dwa%20logo.png")
@@ -223,7 +223,8 @@ def tree_map():
                                                ascending=False).iloc[:10]
     
     treemap = px.treemap(df_tree_map, 
-                         path=['Continent','Country'],
+                         path=['Continent','Country'], 
+                         hover_data=['Armed forces personnel as a proportion of total labour force'],
                          values='Total of armed forces personnel', 
                          color='Total of armed forces personnel',
                          color_continuous_scale=selected_palette)
