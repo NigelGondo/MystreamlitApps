@@ -277,26 +277,26 @@ with col[1]:
 #CREATING A SUMMARY DATAFRAME FOR MILITARY DATA
 st.markdown('##### Summary table for military data')
 st.write(df_country_selected[['Year',
-                                  'Country',
-                                  'Military expenditure (Current USD - $ millions)',
-                                  'Percentage change in military expenditure',
-                                  'Military expenditure per capita',
-                                  'Military expenditure as a share of GDP',
-                                  'Military expendenture as a share of government spending',
-                                  'Total of armed forces personnel',
-                                  'Armed forces personnel (% of total labour force)']]\
-                                      .style\
-                                          .format(precision=2)\
-                                              .format(precision=2,
-                                                      thousands=',', 
-                                                      subset=['Military expenditure (Current USD - $ millions)',
-                                                              'Total of armed forces personnel'])\
-                                                                  .background_gradient(subset=['Military expenditure (Current USD - $ millions)',
-                                                                                               'Percentage change in military expenditure',
-                                                                                               'Military expenditure per capita',
-                                                                                               'Military expenditure as a share of GDP',
-                                                                                               'Military expendenture as a share of government spending',
-                                                                                               'Total of armed forces personnel',
-                                                                                               'Armed forces personnel (% of total labour force)'],
-                                                                                       cmap=selected_palette))
+                              'Country',
+                              'Military expenditure (Current USD - $ millions)',
+                              'Percentage change in military expenditure',
+                              'Military expenditure per capita',
+                              'Military expenditure as a share of GDP',
+                              'Military expendenture as a share of government spending',
+                              'Total of armed forces personnel',
+                              'Armed forces personnel (% of total labour force)']]\
+                                  .style\
+                                      .format(precision=2)\
+                                          .format(precision=2,
+                                                  thousands=',', 
+                                                  subset=['Military expenditure (Current USD - $ millions)',
+                                                          'Total of armed forces personnel'])\
+                                                              .background_gradient(subset=['Military expenditure (Current USD - $ millions)',
+                                                                                           'Percentage change in military expenditure',
+                                                                                           'Military expenditure per capita',
+                                                                                           'Military expenditure as a share of GDP',
+                                                                                           'Military expendenture as a share of government spending',
+                                                                                           'Total of armed forces personnel',
+                                                                                           'Armed forces personnel (% of total labour force)'],
+                                                                                   cmap=selected_palette))
     
