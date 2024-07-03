@@ -159,7 +159,10 @@ df[df['Year']==year_selected]\
 df_sunburst['Percentage of total']= \
 df_sunburst['Military expenditure (Current USD - $ millions)']\
 .apply(lambda x: (x / df_sunburst['Military expenditure (Current USD - $ millions)']\
-                  .sum()) * 100)
+                  .sum()) * 100).round(2)
+
+df_sunburst['% of total'] =\
+    df_sunburst['Percentage of total'].apply('{:.2%}'.format)
 
 def sunburst_plot():
     sunburst = px.sunburst(df_sunburst, 
@@ -169,8 +172,11 @@ def sunburst_plot():
                            color_continuous_scale=selected_palette)
     
     sunburst.update_coloraxes(showscale=False)
+    
     sunburst.update_layout(height=400)
+    
     sunburst.data[0].textinfo='label+text+value'
+    
     
     return sunburst
 
@@ -260,7 +266,7 @@ with col[0]:
 #second column elements
 with col[1]:
     #plotting sunburst chart
-    st.markdown('##### Share of global military spend by continent and sub-continent' + ' ' + str(year_selected))
+    st.markdown('##### Percentage share of global military spend by continent and sub-continent' + ' ' + str(year_selected))
     st.plotly_chart(sunburst_plot(), use_container_width=True)
     
     #plotting treemap
@@ -270,7 +276,7 @@ with col[1]:
 #__________________________________________________   
 #CREATING A SUMMARY DATAFRAME FOR MILITARY DATA
 st.markdown('##### Summary table for military data')
-st.dataframe(df_country_selected[['Year',
+st.write(df_country_selected[['Year',
                                   'Country',
                                   'Military expenditure (Current USD - $ millions)',
                                   'Percentage change in military expenditure',
