@@ -287,7 +287,9 @@ df_summary_table = df_country_selected[['Year',
 
 st.markdown('##### Summary table for military data')
 st.dataframe(df_summary_table, 
-             column_config={'Military expenditure (Current USD - $ millions)':st.column_config.ProgressColumn('Military spending (Current USD - millions)', 
+             column_config={'Year':st.column_config.ProgressColumn('Year',
+                                                                   format="%.0f"),
+                            'Military expenditure (Current USD - $ millions)':st.column_config.ProgressColumn('Military spending (Current USD - millions)', 
                                                                                                               format="$%.2f",
                                                                                                               min_value=0, 
                                                                                                               max_value=max(df_summary_table['Military expenditure (Current USD - $ millions)'])), 
