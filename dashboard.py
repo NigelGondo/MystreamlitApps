@@ -287,7 +287,7 @@ df_summary_table = df_country_selected[['Year',
 
 st.markdown('##### Summary table for military data')
 st.dataframe(df_summary_table, 
-             column_config={'Year':st.column_config.ProgressColumn('Year',
+             column_config={'Year':st.column_config.NumberColumn('Year',
                                                                    format="%.0f"),
                             'Military expenditure (Current USD - $ millions)':st.column_config.ProgressColumn('Military spending (Current USD - millions)', 
                                                                                                               format="$%.2f",
@@ -316,4 +316,5 @@ st.dataframe(df_summary_table,
                             'Armed forces personnel (% of total labour force)':st.column_config.ProgressColumn('Armed forces personnel (% of total labour force)', 
                                                                                                               format="%%%.2f",
                                                                                                               min_value=0,
-                                                                                                              max_value=max(df_summary_table['Total of armed forces personnel']))})
+                                                                                                              max_value=max(df_summary_table['Total of armed forces personnel']))},
+             hide_index=True)
