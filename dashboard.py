@@ -217,7 +217,7 @@ def combo_chart():
                            secondary_y=False, 
                            showgrid=False)
 
-    combo_fig.update_yaxes(title_text='Real Percentage change in military spending', 
+    combo_fig.update_yaxes(title_text='Real percentage change in military spending', 
                            secondary_y=True, 
                            showgrid=False)
     
