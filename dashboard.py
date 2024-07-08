@@ -106,7 +106,7 @@ def barcharts():
                              texttemplate='%%{text:.3s}', 
                              textposition='auto',
                              orientation='h',
-                             name='% change in military spend'), 
+                             name='% change in military spending'), 
                       row=1, col=1)
 
     barplot.add_trace(go.Bar(x=df_country_selected['Military expenditure as a share of GDP'], 
@@ -115,7 +115,7 @@ def barcharts():
                              texttemplate='%%{text:.3s}', 
                              textposition='auto',
                              orientation='h',
-                             name='Military spend as a proportion of GDP'),
+                             name='Military spending as a proportion of GDP'),
                       row=1, col=2)
 
     barplot.add_trace(go.Bar(x=df_country_selected['Military expendenture as a share of government spending'],
@@ -124,7 +124,7 @@ def barcharts():
                              texttemplate='%%{text:.3s}', 
                              textposition='auto',
                              orientation='h', 
-                             name='Military spend as a proportion of government spending'),
+                             name='Military spending as a proportion of government spending'),
                       row=1, col=3)
 
     barplot.update_layout(margin_pad=20,template='plotly_dark',
@@ -260,7 +260,7 @@ with col[0]:
      st.plotly_chart(barcharts())
      
      #plotting combo chart - bar and line 
-     st.markdown('##### ' + ' ' +str(country_selected) + ': Military spending and Percentage change in spending (2014-2023)')
+     st.markdown('##### ' + ' ' +str(country_selected) + ': Trends in military spending and real* percentage change in spending (2014-2023)')
      st.plotly_chart(combo_chart())
 
 #second column elements
