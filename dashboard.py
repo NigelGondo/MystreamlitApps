@@ -87,7 +87,8 @@ def choropleth_map():
                                                'Armed forces personnel'],
                                    color_continuous_scale=selected_palette)
         
-    choropleth_map.update_layout(template='plotly_dark',
+    choropleth_map.update_layout(template='plotly_dark', 
+                                 dragmode=False,
                                  plot_bgcolor='rgba(0, 0, 0, 0)',
                                  paper_bgcolor='rgba(0, 0, 0, 0)',
                                  margin=dict(l=0, r=0, t=0, b=0))
