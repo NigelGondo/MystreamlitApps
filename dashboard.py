@@ -214,7 +214,8 @@ def combo_chart():
     combo_fig.update_xaxes(title_text='Year', 
                            showgrid=False)
 
-    combo_fig.update_yaxes(title_text='Military spending (Current USD)', 
+    combo_fig.update_yaxes(title_text='Military spending (Current USD - $ millions)', 
+                           yaxis=dict(title_font=dict(size=8),  # Adjust the font size here
                            secondary_y=False, 
                            showgrid=False)
 
